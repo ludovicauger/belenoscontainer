@@ -55,15 +55,18 @@ From: $base
     # -------------------------------------------------
     export MINIFORGE_VERSION="23.11.0-0"   # à mettre à jour si besoin
     export MINIFORGE_URL="https://github.com/conda-forge/miniforge/releases/download/\${MINIFORGE_VERSION}/Miniforge3-\${MINIFORGE_VERSION}-Linux-x86_64.sh"
+    export SSL_CERT_FILE=/usr/local/share/ca-certificates/proxy1.crt
+    export REQUESTS_CA_BUNDLE=$SSL_CERT_FILE
 
     wget -O /tmp/miniforge.sh "\${MINIFORGE_URL}" && \
         bash /tmp/miniforge.sh -b -p /opt/conda && \
         rm -f /tmp/miniforge.sh
- #  mkdir -p /opt/tactus
- #  cd /opt/tactus
- #  git clone https://github.com/ACCORD-NWP/tactus
- #  cd tactus
- #  curl -k https://install.python-poetry.org | python3 -
+   mkdir -p /opt/tactus
+   cd /opt/tactus
+   git clone https://github.com/ACCORD-NWP/tactus
+   cd tactus
+   curl -k https://install.python-poetry.org | python3 -
+   /root/.local/bin/poetry -v install
     #
 
 %environment
