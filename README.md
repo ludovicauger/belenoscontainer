@@ -1,14 +1,15 @@
 # fabrication du container sur pc :
+```
 ./singularity-hpc.sh
 
-# lacement sur belenos
+```
+# lancement sur belenos
 seul le noeud de login 0 contient singularity et aussi les noeuds de calcul.
 ```
 ssh belenoslogin0
 singularity shell --bind /scratch:/scratch ubuntu:26.04-hpc.sif
-```
-SSL_CERT_FILE=/home/gmap/mrpa/auger/certificats/tls-ca-bundle.pem
-export REQUESTS_CA_BUNDLE=$SSL_CERT_FILE
+>SSL_CERT_FILE=/home/gmap/mrpa/auger/certificats/tls-ca-bundle.pem
+>export REQUESTS_CA_BUNDLE=$SSL_CERT_FILE
 ```
 test du certificat sous python
 ```
